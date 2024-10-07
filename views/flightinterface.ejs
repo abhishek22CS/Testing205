@@ -14,7 +14,7 @@
             }
             .box{
                 width: 50%;
-                height: 50%;
+                height: auto;
                 background-color: #ffff;
                 border-radius: 10px;
                 padding: 15px;
@@ -29,6 +29,9 @@
               flex-direction: row;
               display: flex;
               justify-content:space-evenly;
+            }
+            .buttonstyle{
+              width: 100%;
             }
         </style>
     </head>
@@ -145,8 +148,24 @@
                 <input type="time" class="form-control" id="arrtime" name="arrtime">
                 
 
-              </div>    
-
+              </div>   
+              
+              <div class="col-md-6">
+                <label for="Company" class="form-label">Company</label>
+                <input type="text" class="form-control" id="Company" name="Company">
+              </div>
+              <div class="col-md-6">
+                <label for="logo" class="form-label">Logo</label>
+                <input type="file" class="form-control" id="logo" name="logo">
+              </div>
+              <div class="col-md-6">
+                <button type="submit" class="btn btn-secondary buttonstyle"><b>Submit</b></button>
+                
+              </div>
+              <div class="col-md-6">
+                <button type="reset" class="btn btn-secondary buttonstyle"><b>Reset</b></button>
+                
+              </div>
 
           </form>
            </div>
