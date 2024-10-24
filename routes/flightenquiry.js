@@ -54,7 +54,36 @@ pool.query("select * from cities ",function(error,result){
 
 })
 
+
+
+
+
  });
+
+
+ // --------------------------------------------------------------------------------
+// flightdetails api
+
+router.get('/displayallflights', function(req, res, next) {
+  pool.query("select * from flightdetails ",function(error,result){
+    if(error)
+    {
+      res.render('displayallflights',{'data':[],'message':'Server Error'})
+     }
+  
+    else{
+  
+        res.render('displayallflights',{'data':result,'message':'Success'})
+    }
+  
+  })
+  
+  
+  
+  
+  
+   });
+  
 
 
 module.exports = router;
