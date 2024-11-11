@@ -65,7 +65,9 @@ pool.query("select * from cities ",function(error,result){
 // flightdetails api
 
 router.get('/displayallflights', function(req, res, next) {
-  pool.query("select * from flightdetails ",function(error,result){
+  // pool.query("select * from flightdetails ",function(error,result){
+     pool.query("select F.*,(select C.cityname from cities C where C.cityid=F.sourcecity) as source,(select C.cityname from cities C where C.cityid=F.destinationcity) as destination from flightdetails F",function(error,result){
+
     if(error)
     {
       res.render('displayallflights',{'data':[],'message':'Server Error'})
