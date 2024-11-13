@@ -61,6 +61,7 @@
                 <%=item.flightname%>
                 <br>
                 <%=item.flighttype%>
+
             </th>
             <td>
                 Seats:<%=item.totalseats%>
@@ -85,7 +86,11 @@
               <td> 
                      <img src="/images/<%=item.logo %>"  width="30"/>
             </td>
-            <td>Edit/Delete</td>
+                    <!-- creating a link by a href section for update and delete -->
+            <td>          
+                <a href="/flightenquiry/searchbyid?fid=<%=item.flightid%>"> 
+              Edit/Delete</a></td>
+        
           </tr>
          <%}) %>
         </tbody>
