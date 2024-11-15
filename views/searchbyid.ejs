@@ -70,51 +70,120 @@
               </div>
               <div class="col-md-6">
                 <label for="days" class="form-label"><b>Select Flight Days</b></label>
+                <% var wd=data.days.split(",")%>
+                
                 <div class="dayss"> 
                   <span class="form-check">
-                    <input class="form-check-input" type="checkbox" name="days" value="Mon" id="days">
+                    <%  var mchk=''
+                     wd.map((item)=>
+                    {
+
+                    if(item=='Mon')
+                    {
+                      mchk='checked'
+                    }
+                    }) %>
+
+                    
+                    <input <%=mchk %> class="form-check-input" type="checkbox" name="days" value="Mon" id="days">
                     <label for="days" class="form-label">
                       Mon
                     </label>
 
                   </span>
                   <span class="form-check">
-                    <input class="form-check-input" type="checkbox" name="days" value="Tue" id="days">
+                    <%  var tchk=''
+                    wd.map((item)=>
+                    {
+
+                    if(item=='Tue')
+                    {
+                      tchk='checked'
+                    }
+                    }) %>
+                    <input <%=tchk %> class="form-check-input" type="checkbox" name="days" value="Tue" id="days">
                     <label for="days" class="form-label">
                       Tue
                     </label>
 
                   </span>
                   <span class="form-check">
-                    <input class="form-check-input" type="checkbox" name="days" value="Wed" id="days">
+                    <%  var wchk=''
+                    wd.map((item)=>
+                   {
+
+                   if(item=='Wed')
+                   {
+                     wchk='checked'
+                   }
+                   }) %>
+                    <input <%=wchk %> class="form-check-input" type="checkbox" name="days" value="Wed" id="days">
                     <label for="days" class="form-label">
                       Wed
                     </label>
 
                   </span>
                   <span class="form-check">
-                    <input class="form-check-input" type="checkbox" name="days" value="Thu" id="days">
+                    <%  var thchk=''
+                    wd.map((item)=>
+                   {
+
+                   if(item=='Thu')
+                   {
+                     thchk='checked'
+                   }
+                   }) %>
+                    <input <%=thchk %> class="form-check-input" type="checkbox" name="days" value="Thu" id="days">
                     <label for="days" class="form-label">
                       Thu
                     </label>
 
                   </span>
                   <span class="form-check">
-                    <input class="form-check-input" type="checkbox" name="days" value="Fri" id="days">
+                 
+                    <% 
+                       var fchk=''
+                    wd.map((item)=>
+                    {
+
+                    if(item=='Fri')
+                    {
+                      fchk='checked'
+                    }
+                    }) %>
+                    <input <%=fchk %> class="form-check-input" type="checkbox" name="days" value="Fri" id="days">
                     <label for="days" class="form-label">
                       Fri
                     </label>
 
                   </span>
                   <span class="form-check">
-                    <input class="form-check-input" type="checkbox" name="days" value="Sat" id="days">
+                    <%  var sachk=''
+                    wd.map((item)=>
+                   {
+
+                   if(item=='Sat')
+                   {
+                     sachk='checked'
+                   }
+                   }) %>
+                    <input <%=sachk %> class="form-check-input" type="checkbox" name="days" value="Sat" id="days">
                     <label for="days" class="form-label">
                       Sat
                     </label>
 
                   </span>
                   <span class="form-check">
-                    <input class="form-check-input" type="checkbox" name="days" value="Sun" id="days">
+                    <%  var suchk=''
+                    wd.map((item)=>
+                   {
+
+                   if(item=='Sun')
+                   {
+                     suchk='checked'
+                   }
+                   }) %>
+                    <input <%=suchk %> class="form-check-input" type="checkbox" name="days" value="Sun" id="days">
                     <label for="days" class="form-label">
                       Sun
                     </label>

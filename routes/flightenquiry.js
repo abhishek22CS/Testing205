@@ -89,6 +89,7 @@ router.get('/displayallflights', function(req, res, next) {
    router.get('/searchbyid', function(req, res, next) {
         pool.query("select F.*,(select C.cityname from cities C where C.cityid=F.sourcecity) as source,(select C.cityname from cities C where C.cityid=F.destinationcity) as destination from flightdetails F where flightid=?",
           [req.query.fid],
+          
           function(error,result){
   
       if(error)
