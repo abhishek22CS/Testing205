@@ -109,7 +109,63 @@ router.get('/displayallflights', function(req, res, next) {
     
     
      });
-  
 
+    //  Update Api
+  
+     router.post('/flight_edit_delete',function(req,res){
+      if(req.body.btn=="Edit")
+      {
+
+      // console.log("days",req.body.days)
+      var days=(""+req.body.days).replaceAll("'",'"')
+
+      pool.query("update  flightdetails set flightname=?, types=?, totalseats=?, days=?, sourcecity=?, departuretime=?, destinationcity=?, arrivaltime=?, company=? where flightid=?",
+        [req.body.flightname,
+          req.body.flighttype,
+          req.body.noofseat,
+           days,
+          req.body.sourcecity,
+          req.body.deptime,
+          req.body.destinationcity,
+          req.body.arrtime,
+          req.body.Company,
+          req.body.flightid
+        ],
+        function(error,result)
+        {
+        if(error)
+    
+        {
+           res.redirect('/flightenquiry/displayallflights')
+        }
+        else{
+          res.redirect('/flightenquiry/displayallflights')
+        }
+      }
+      )
+
+    }
+    else
+    {
+      
+    
+      pool.query("delete from flightdetails where flightid=?",
+        [req.body.flightid],
+      
+        function(error,result)
+        {
+        if(error)
+    
+        {
+           res.redirect('/flightenquiry/displayallflights')
+        }
+        else{
+          res.redirect('/flightenquiry/displayallflights')
+        }
+      }
+      )
+    }
+
+    })
 
 module.exports = router;

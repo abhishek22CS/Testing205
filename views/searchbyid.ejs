@@ -45,8 +45,8 @@
                 <img src="/images/f.png" width="42">
                 Flight Updation
           </div>
-          <form class="row g-3" action="/flightenquiry/flightsubmit"  method="post"  enctype="multipart/form-data" >
-                      
+          <form class="row g-3" action="/flightenquiry/flight_edit_delete"  method="post"   >
+                      <input type="hidden" name="flightid" value="<%=data.flightid%>">
             <div class="col-md-6">
               <label for="flightname" class="form-label">Flight Name</label>
               <input type="text" class="form-control" id="flightname" name="flightname" value="<%=data.flightname%>">
@@ -232,18 +232,16 @@
                 <input type="file" class="form-control" id="logo" name="logo" value="<%=data.logo%>">
               </div> -->
               <div class="col-md-6">
-                <button type="submit" class="btn btn-secondary buttonstyle"><b>Update</b></button>
+                <button type="submit" value="Edit" name="btn" class="btn btn-secondary buttonstyle"><b>Update</b></button>
                 
               </div>
               <div class="col-md-6">
-                <button type="reset" class="btn btn-secondary buttonstyle"><b>Delete</b></button>
+                <button type="submit"  name="btn" value="Delete" class="btn btn-secondary buttonstyle"><b>Delete</b></button>
                 
               </div>
 
           </form>
-          <div class="col-md-12" style="display: flex; justify-content: center ;padding:5px;">
-            <%=message%>
-          </div>
+        
            </div>
           
         </div>
