@@ -9,8 +9,7 @@ var upload=require("./multer")
 });
 
 router.post('/flightsubmit',upload.single("logo"),function(req,res){
-  // console.log("days",req.body.days)
-  var days=(""+req.body.days).replaceAll("'",'"')
+   var days=(""+req.body.days).replaceAll("'",'"')
   pool.query("insert into flightdetails (flightname, types, totalseats, days, sourcecity, departuretime, destinationcity, arrivaltime, company, logo ) values(?,?,?,?,?,?,?,?,?,?)",
     [req.body.flightname,
       req.body.flighttype,
@@ -110,6 +109,31 @@ router.get('/displayallflights', function(req, res, next) {
     
      });
 
+     //////////////////////////////for image
+     router.get('/searchbyidforimage', function(req, res, next) {
+      pool.query("select F.*,(select C.cityname from cities C where C.cityid=F.sourcecity) as source,(select C.cityname from cities C where C.cityid=F.destinationcity) as destination from flightdetails F where flightid=?",
+        [req.query.fid],
+        
+        function(error,result){
+
+    if(error)
+    {
+      res.render('showimage',{'data':[],'message':'Server Error'})
+     }
+  
+    else{
+  
+        res.render('showimage',{'data':result[0],'message':'Success'})
+    }
+  
+  })
+  
+  
+  
+  
+  
+   });
+
     //  Update Api
   
      router.post('/flight_edit_delete',function(req,res){
@@ -167,5 +191,28 @@ router.get('/displayallflights', function(req, res, next) {
     }
 
     })
+
+    // for image Updation edit api
+    router.post('/editimage',upload.single("logo"),function(req,res){
+      pool.query("update  flightdetails set logo=?  where flightid=?",
+       [ 
+         req.file.originalname,
+         req.body.flightid
+       ],
+       function(error,result)
+       {
+       if(error)
+   
+       {
+        res.redirect('/flightenquiry/displayallflights')
+
+        }
+       else{
+        res.redirect('/flightenquiry/displayallflights')
+
+        }
+     }
+     )
+   })
 
 module.exports = router;

@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <script src="https://cdn.tailwindcss.com"></script>
+
+    </head>
+    <body class="bg-blue-500">
+        
+  <div class="">
+    <div class="mt-[10.5rem]">
+    <center>
+        <form action="/flightenquiry/editimage" method="post" enctype="multipart/form-data">
+            <input type="hidden" value="<%=data.flightid%>" name="flightid">
+            <h2 class="text-white text-2xl"><%=data.flightname%></h2>
+            <h3 class="text-white text-xl" > <%=data.company%></h3>
+            <img src="/images/<%=data.logo %>" width="250" alt=""><br><br>
+            <b>Upload New Images:</b>
+            <input type="file" required name="logo" ><br><br>
+            <input type="Submit" value="Upload New Image"  class="bg-indigo-700 text-white   rounded-2xl px-2 py-2">
+
+        </form>
+    </center>
+</div>
+</div>
+</body>
+</html>

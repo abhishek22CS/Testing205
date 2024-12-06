@@ -39,6 +39,12 @@
 <body>
     <div class="main"> 
         <div class="box"> 
+          <div class="heading">
+            <img src="/images/f.png" width="42">
+          List Of Flights
+      <a href="/flightenquiry/flightpage">    <img src="/images/list.png" alt="" width="35 " style="margin-left: 60rem;"></a>
+      </div>
+      
     <table class="table  table-hover">
         <thead>
           <tr>
@@ -85,7 +91,8 @@
                 <%=item.company%>
             </td>
               <td> 
-                     <img src="/images/<%=item.logo %>"  width="30"/>
+                <a href="/flightenquiry/searchbyidforimage?fid=<%=item.flightid%>">
+                  <img src="/images/<%=item.logo %>"  width="30"/></a> 
             </td>
                     <!-- creating a link by a href section for update and delete -->
             <td>          
