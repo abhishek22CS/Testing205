@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 // var studentRouter=require('./routes/student');
 var flightenquiryRouter=require('./routes/flightenquiry');
+var adminRouter=require('./routes/adminlogin')
 
 
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/flightenquiry', flightenquiryRouter);
+app.use('/princess',adminRouter)
 
 // app.use('/school', studentRouter);
 // app.use('/collage', teacherRouter);
