@@ -2,10 +2,17 @@ var express = require('express');
 var router = express.Router();
 var pool=require('./pool')
 var upload=require("./multer")
+var LocalStorage = require('node-localstorage').LocalStorage;
+localStorage = new LocalStorage('./scratch');
+date = new Date()
 
  router.get('/flightpage', function(req, res, next) {
-
+  var admin=JSON.parse(localStorage.getItem('ADMIN'))
+if(admin)
   res.render('flightinterface', {message: '' });
+else{
+  res.render('loginpage', { message: "" })
+}
 });
 
 router.post('/flightsubmit',upload.single("logo"),function(req,res){
@@ -64,6 +71,9 @@ pool.query("select * from cities ",function(error,result){
 // flightdetails api
 
 router.get('/displayallflights', function(req, res, next) {
+  var admin=JSON.parse(localStorage.getItem('ADMIN'))
+if(admin)
+{
   // pool.query("select * from flightdetails ",function(error,result){
      pool.query("select F.*,(select C.cityname from cities C where C.cityid=F.sourcecity) as source,(select C.cityname from cities C where C.cityid=F.destinationcity) as destination from flightdetails F",function(error,result){
 
@@ -80,7 +90,10 @@ router.get('/displayallflights', function(req, res, next) {
   })
   
   
-  
+}
+else{
+  res.render('loginpage',{message:''})
+}
   
   
    });
